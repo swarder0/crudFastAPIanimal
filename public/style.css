@@ -96,7 +96,7 @@ body {
 .lista_animal ul{
     display: flex;
     flex-direction: column;
-    background-color: #1d283b;
+    background-color: #1b1e24;
     position: relative;
     list-style-type: none;
     width: 180px;
@@ -115,15 +115,16 @@ body {
 }
 .lista_animal img {
     display: flex;
-    width: 20px; 
-    height: 20px; 
+    width: 25px; 
+    height: 25px; 
     cursor: pointer;
     position: relative;
-    bottom: 80px;
+    bottom: 55px;
     left: 150px;
+    padding: 2px;
 }
 .cachorro-background {
-    background-image: url('/data/logoCorgi.png');
+    background-image: url('/fastAPI/data/cachorro.jfif');
     background-size: 100px 100px;
     background-repeat: no-repeat;
     background-position-x: 40px;

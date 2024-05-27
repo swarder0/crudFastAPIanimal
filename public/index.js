@@ -32,26 +32,26 @@ async function carregarAnimais(){
         sexo.innerText = `Sexo: ${animal.sexo}`
         cor.innerText = `Cor: ${animal.cor}`
 
-        imageButton.src = '/data/delete.png'
+        imageButton.src = '/fastAPI/data/fechar.png'
         imageButton.alt = 'Deletar';
         imageButton.classList.add('image-button')
 
-        updateButton.src = '/data/logoCorgi.png'
+        updateButton.src = '/fastAPI/data/editar.png'
         updateButton.alt = 'Atualizar'
         updateButton.classList.add('image-button')
 
-        updateButton.addEventListener('click', async () => {
-            await atualizarAnimal(animal.id)
-            location.reload()
-        });
         imageButton.addEventListener('click', async () => {
             await deletarAnimal(animal.id)
             location.reload()
         });
+        updateButton.addEventListener('click', async () => {
+            await atualizarAnimal(animal.id)
+            location.reload()
+        });
 
 
-        item.appendChild(updateButton)
         item.appendChild(imageButton)
+        item.appendChild(updateButton)        
         item.appendChild(nome)
         item.appendChild(idade)
         item.appendChild(cor)
