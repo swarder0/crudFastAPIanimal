@@ -1,0 +1,94 @@
+async function carregarAnimais(){
+
+    const response = await axios.get('http://localhost:8000/animais')
+        
+    const animais = (response.data)
+
+    const lista = document.getElementById('lista_animais')
+
+    innerHTML = '';
+
+
+    animais.forEach(animal => {
+        const item = document.createElement('ul')
+        const nome = document.createElement('li')        
+        const idade = document.createElement('li')
+        const sexo = document.createElement('li')
+        const cor = document.createElement('li')
+        const button = document.createElement('button')
+
+        nome.innerText = `Nome: ${animal.nome}`
+        idade.innerText = `Idade: ${animal.idade}`
+        sexo.innerText = `Sexo: ${animal.sexo}`
+        cor.innerText = `Cor: ${animal.cor}`
+        button.textContent = 'Deletar'
+        button.addEventListener('click', async () => {
+            await deletarAnimal(animal.id)
+        });
+
+
+        item.appendChild(button)
+        item.appendChild(nome)
+        item.appendChild(idade)
+        item.appendChild(cor)
+        item.appendChild(sexo)
+        lista.appendChild(item)
+    });
+
+} 
+
+
+
+function manipularFormulario() {
+    const formulario = document.getElementById('lista-animal')
+    const input_nome = document.getElementById('nome')
+    const input_idade = document.getElementById('idade')
+    const input_cor = document.getElementById('cor')
+    const select_sexo = document.getElementById('sexo')
+    const selectRaça = document.getElementById('raça')
+
+
+    formulario.onsubmit = async (event) => {
+        event.preventDefault()
+        const nome_animal = input_nome.value
+        const idade_animal = input_idade.value
+        const cor_animal = input_cor.value
+        const sexo_animal = select_sexo.value
+        const raça_animal = selectRaça.value
+        
+
+        await axios.post('http://localhost:8000/animais', {
+            nome: nome_animal,
+            idade: idade_animal,
+            sexo: sexo_animal,
+            cor: cor_animal,
+            raça: raça_animal
+            
+        })
+     };
+}
+async function deletarAnimal(animalId) {
+
+        const response = await axios.delete(`http://localhost:8000/animal/${animalId}`);
+
+        // Verifica se a requisição foi bem-sucedida
+        if (response.status === 200) {
+            console.log("Animal removido com sucesso!");
+        } else {
+            console.error("Erro ao remover o animal:", response.data);
+        }
+}
+
+
+
+function app(){
+    console.log('App iniciada')
+    carregarAnimais()
+    manipularFormulario()
+    deletarAnimal()
+
+}
+
+app()
+
+

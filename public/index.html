@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>AppAnimal</title>
+</head>
+<body>
+    <header class="head">
+        <div class="head-container2"></div> 
+        <div class="head-container">
+            <img src="/data/logoCorgi.png" alt="" class="logo">
+            <h1>Cadastro do seu Pet</h1>
+        </div>
+          
+    </header>
+    <main class="main">
+        <div class="container1">
+            <h2>Cadastrar novo Pet</h2>
+            <form id="lista-animal" class="formulario">
+                <input type="text" id="nome" placeholder="Nome">
+                <input type="text" id="idade" placeholder="Idade">                
+                <input type="text" id="cor" placeholder="Cor">
+                <select id="sexo">
+                    <option value=""disabled selected>Sexo</option>
+                    <option value="Macho">Macho</option>
+                    <option value="Femea">Femea</option>
+                </select>
+                <select id="raça">
+                    <option value="" disabled selected>Raça</option>
+                    <option value="Cachorro">Cachorro</option>
+                    <option value="Gato">Gato</option>
+                    <option value="Passarinho">Passarinho</option>
+                    <option value="Roedor">Roedor</option>
+                </select>
+                <input type="submit" value="Adicionar Pet">
+            </form> 
+        </div> 
+        <div class="container2">
+            
+            <ul id="lista_animais" class="lista_animal"></ul>
+        </div>
+    </main>
+
+    <footer class="footer">
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
