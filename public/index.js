@@ -138,7 +138,6 @@ function app(){
     console.log('App iniciada')
     carregarAnimais()
     manipularFormulario()
-    deletarAnimal()
 }
 
 app()
